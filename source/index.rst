@@ -13,6 +13,8 @@ Contents:
 
    introduction
    createapp
+   appstrucure
+
 
 Indices and tables
 ==================
