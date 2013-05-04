@@ -1,18 +1,18 @@
 - créer un egg #
 - __init__ #
-- views
-- fichier de conf
 - route
+- views
+- page template / chameleon
+  * layout
+  * menu
+  * i18n
+- fichier de conf
 - event
 - settings
 - predicate
 - request
   * route_url
   * route_path
-- page template / chameleon
-  * layout
-  * menu
-  * i18n
 - sqlalchemy, transaction manager
 - flash
 - pyramid debugtoolbar
