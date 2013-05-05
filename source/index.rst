@@ -15,7 +15,8 @@ Contents:
    createapp
    appstrucure
    route
-
+   views
+   templates
 
 Indices and tables
 ==================
