@@ -114,3 +114,70 @@ tous ces paramètres peuvent se combiner pour offrir une granularité fine pour 
 
 Dans cet exemple, la même route `home` peut répondre selon les combinaisons de 4 manières différentes en utilisant s'il le
 faut différents rendus.
+
+
+Ajout de paramêtres
+-------------------
+
+Si la liste ne suffit pas, il est possible de créer ses propres prédicats.
+
+Il n'y a pas d'interface au sens zope mais la classe doit respecter la signature
+suivante :
+
+.. code-block:: python
+
+ class Predicate(object):
+    def __init__(self, val, config):
+        pass
+
+    def text(self):
+        return 'une signature'
+
+    phash = text
+
+    def __call__(self, context, request):
+        return True # retourne un booléen
+
+Exemple de prédicat sur le jour de la semaine.
+
+.. code-block:: python
+
+ class DayPredicate(object):
+       _choice = {'monday': 0,
+                  'thursday': 1,
+		  'wedesnday': 2,
+		  'thuesday' : 4,
+		  'friday': 5,
+		  'saturday': 6,
+		  'sunday': 7}
+
+       def __init__(self, val, config):
+	   self._val = val
+	   self._numVal = self._choice[val]
+
+       def text(self):
+           return 'predicat on %s' % self._val
+
+       phash = text
+
+       def __call__(self, context, request):
+           return datetime.datetime.today().weekday() == self._numVal
+
+Ajout du prédicat à pyramid:
+
+.. code-block:: python
+
+ config.add_view_predicate('day', DayPredicate)
+
+et enfin l'utilisation.
+
+.. code-block:: python
+
+ @view_config(route_name='some route', renderer='template/monday.pt', day='monday')
+ def monday(request):
+     pass
+
+ @view_config(route_name='some route', renderer='template/sunday.pt', day='sunday')
+ def sunday(request):
+     pass
+
