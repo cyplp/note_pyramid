@@ -17,6 +17,7 @@ Contents:
    route
    views
    templates
+   renderer
 
 Indices and tables
 ==================

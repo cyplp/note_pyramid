@@ -35,6 +35,6 @@ générer l'egg de l'application. `pcreate` vient avec 3 templates pour `pyramid
 
 Pour créer une application: `bin/pcreate -s <votre template> <nom de l'egg>`.
 
-Il existe d'autre templates disponible sur le pypi_.
+Il existe d'autre templates disponibles sur le pypi_.
 
 .. _pypi: http://pypi.python.org/pypi
