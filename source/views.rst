@@ -195,7 +195,7 @@ et enfin l'utilisation.
  def sunday(request):
      pass
 
-Une autre approche est d'utiliser le parametre predicate de `view_config`.
+Une autre approche est d'utiliser le parametre custom_predicate de `view_config`.
 
 .. code-block:: python
 
