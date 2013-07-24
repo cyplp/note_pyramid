@@ -57,6 +57,7 @@ La méthode `__call__` doit retourner une chaine avec le résulat du rendu.
 
 `value` contient la donnée retournée par la méthode décorée par le `view_config`.
 `system` est un dictionnaire contenant :
+
  - renderer_info : même RendererHelper que `info`,
  - renderer_name : valeur de `renderer` du décorateur `view_config` ; typiquement le chemin vers le template,
  - context : un object pyramid.traversal.DefaultRootFactory,:

@@ -19,7 +19,21 @@ le fichier `views.py` rassemble les différentes vues :
   # [SNIP]
 
 
-.. Note:: Les vues peuvent être éclater dans plusieurs fichiers, peuvent être sous forme de classes...
+Les vues peuvent être éclatés dans plusieurs fichiers, peuvent être écrites sous forme de classes.
+
+.. code-block:: python
+
+   class ViewSample(object):
+   	def __init__(self, request):
+	    self._request = request
+
+	@view_config(route_name='home', renderer='templates/home.pt')
+        def home(self):
+            return {'project':'cyplp.timelapse_commander'}
+
+        @view_config(route_name='controls', renderer='templates/controls.pt')
+	def controls(request):
+            return {'status': 'ok', 'values': [1, 2, 3]}
 
 
 Une vue est une fonction décorée par `view_config`. La fonction prends en paramètre un objet `request` (abordé plus tard)
@@ -181,3 +195,14 @@ et enfin l'utilisation.
  def sunday(request):
      pass
 
+Une autre approche est d'utiliser le parametre predicate de `view_config`.
+
+.. code-block:: python
+
+ @view_config(route_name='some route', renderer='template/monday.pt', custom_predicate=(DayPredicate('monday', None), ))
+ def monday(request):
+     pass
+
+ @view_config(route_name='some route', renderer='template/sunday.pt', custom_predicate=(DayPredicate('sunday', None), ))
+ def sunday(request):
+     pass
