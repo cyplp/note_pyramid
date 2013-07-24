@@ -4,8 +4,8 @@ Introduction
 
 Pyramid_ est un framework web en python compatible wsgi_.
 Pyramid_ n'est pas un framework web complet comme Django_ mais un assemblage de briques
-éxistantes en dehors de Pyramid_. Ces briques sont plus souvent interchangeables et
-utilisables dans d'autres framework.
+xistantes en dehors de Pyramid_. Ces briques sont le plus souvent interchangeables et
+utilisables dans d'autres frameworks.
 
 .. _Pyramid: http://docs.pylonsproject.org/projects/pyramid
 .. _wsgi: http://www.python.org/dev/peps/pep-0333/
